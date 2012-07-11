@@ -112,7 +112,7 @@ def create_atom(size, type, offset, file):
     try:
         # Try and eval the class into existance
         return eval("%s(size, type, clz, offset, file)" % clz)
-    except NameError:
+    except (NameError, SyntaxError):
         # Not defined, use generic Atom
         return Atom(size, type, clz, offset, file)
 
